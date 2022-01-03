@@ -21,13 +21,19 @@ public class CameraController : MonoBehaviour
     [Header("Контроль чувствительности мыши")]
     public float sensitivityMouse = 200f;
     public Transform playerTransform;
+
     [Header("Обьект гдк будет появлятся подарок ")]
     [SerializeField] private Transform presentsPos;
     public float force;
+
     [Header("Лист для подарков")]
     public List<GameObject> presents = new List<GameObject>();
+
     [Header("Уголь")]
     public List<GameObject> coals = new List<GameObject>();
+
+    [Header("горячая клавишв для подбора")]
+    public GameObject hotKeyBoard;
     #endregion
     void Start()
     {
@@ -64,6 +70,14 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            if (hit.transform.gameObject.tag == "Bag" || hit.transform.gameObject.tag == "MountainOfCoal"&& presentInhand == null)
+            {
+                hotKeyBoard.SetActive(true);
+            }
+            else
+            {
+                hotKeyBoard.SetActive(false);
+            }
             if (Input.GetKeyDown(KeyCode.E) && presentInhand == null)
             {
                 if (hit.transform.gameObject.tag == "Bag")
