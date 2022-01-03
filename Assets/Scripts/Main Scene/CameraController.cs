@@ -24,6 +24,10 @@ public class CameraController : MonoBehaviour
     [Header("Обьект гдк будет появлятся подарок ")]
     [SerializeField] private Transform presentsPos;
     public float force;
+    [Header("Лист для подарков")]
+    public List<GameObject> presents = new List<GameObject>();
+    [Header("Уголь")]
+    public List<GameObject> coals = new List<GameObject>();
     #endregion
     void Start()
     {
@@ -60,12 +64,24 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.tag == "Bag"&& presentInhand == null)
+            if (Input.GetKeyDown(KeyCode.E) && presentInhand == null)
             {
-                GameObject a = Instantiate<GameObject>(Resources.Load<GameObject>("present"));
-                a.transform.SetParent(presentsPos);
-                a.transform.localPosition = Vector3.zero;
-                presentInhand = a;
+                if (hit.transform.gameObject.tag == "Bag")
+                {
+                    GameObject a = Instantiate<GameObject>(presents[Random.Range(0, presents.Count)]);
+                    a.transform.SetParent(presentsPos);
+                    a.transform.localPosition = Vector3.zero;
+                    a.transform.localRotation = Quaternion.identity;
+                    presentInhand = a;
+                }
+                else if(hit.transform.gameObject.tag == "MountainOfCoal")
+                {
+                    GameObject a = Instantiate<GameObject>(coals[Random.Range(0, coals.Count)]);
+                    a.transform.SetParent(presentsPos);
+                    a.transform.localPosition = Vector3.zero;
+                    a.transform.localRotation = Quaternion.identity;
+                    presentInhand = a;
+                }
             }
         }
         else
@@ -77,7 +93,7 @@ public class CameraController : MonoBehaviour
             if (presentInhand != null)
             {
                 Rigidbody rig = presentInhand.GetComponent<Rigidbody>();
-                rig.AddRelativeForce(new Vector3(Random.Range(-0.07f,0.07f), Random.Range(0.2f, 0.4f), 1) * force, ForceMode.Impulse);
+                rig.AddRelativeForce(new Vector3(0, 0.1f, 1) * force, ForceMode.Impulse);
                 rig.useGravity = true;
                 presentInhand.transform.SetParent(playerTransform.parent.parent);
                 presentInhand = null;

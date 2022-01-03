@@ -6,6 +6,7 @@ TagManager:
   tags:
   - present
   - Bag
+  - MountainOfCoal
   layers:
   - Default
   - TransparentFX
