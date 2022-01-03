@@ -16,8 +16,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float Xmin;
     [SerializeField] private float Xmax;
     private RaycastHit hit;
-    private bool giftCaptured = false;
-    private GameObject presentGO;
     #endregion
     #region public field
     [Header("Контроль чувствительности мыши")]
@@ -25,10 +23,7 @@ public class CameraController : MonoBehaviour
     public Transform playerTransform;
     [Header("Обьект гдк будет появлятся подарок ")]
     [SerializeField] private Transform presentsPos;
-    [Header("Компоненты необходимые для спавна подарков")]
-    public GameObject present;
-    public Transform presentSpawnPos;
-
+    public float force;
     #endregion
     void Start()
     {
@@ -40,14 +35,6 @@ public class CameraController : MonoBehaviour
         InputMouse();
         CameraRotate();
         RayPickUp();
-        if (Input.GetMouseButtonDown(0) && giftCaptured)
-        {
-            Rigidbody presentRig= presentGO.GetComponent<Rigidbody>();
-            presentRig.constraints = RigidbodyConstraints.None;
-            presentRig.AddForce(Vector3.forward*20, ForceMode.Impulse);
-            giftCaptured = false;
-            presentGO.transform.SetParent(playerTransform.parent);
-        }
     }
     private void InputMouse()
     {
@@ -63,29 +50,38 @@ public class CameraController : MonoBehaviour
         playerTransform.localRotation = Quaternion.Euler( 0, -rotationX, 0);
         myTransform.localRotation = Quaternion.Euler(rotationY, 0, 0);
     }
-    
+    static public GameObject presentInhand;
     private void RayPickUp()
     {
+
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.tag == "present")
+            if (Input.GetKeyDown(KeyCode.E) && hit.transform.gameObject.tag == "Bag"&& presentInhand == null)
             {
-                hit.transform.SetParent(presentsPos);
-                LeanTween.moveLocal(hit.transform.gameObject, new Vector3(0, 0, 0),0.2f);
-                giftCaptured = true;
-                presentGO = hit.transform.gameObject;
-                GameObject a=  Instantiate(present);
-                a.transform.SetParent(presentSpawnPos);
-                a.transform.localPosition = new Vector3(0, 0, 0);
+                GameObject a = Instantiate<GameObject>(Resources.Load<GameObject>("present"));
+                a.transform.SetParent(presentsPos);
+                a.transform.localPosition = Vector3.zero;
+                presentInhand = a;
             }
         }
         else
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (presentInhand != null)
+            {
+                Rigidbody rig = presentInhand.GetComponent<Rigidbody>();
+                rig.AddRelativeForce(new Vector3(Random.Range(-0.07f,0.07f), Random.Range(0.2f, 0.4f), 1) * force, ForceMode.Impulse);
+                rig.useGravity = true;
+                presentInhand.transform.SetParent(playerTransform.parent.parent);
+                presentInhand = null;
+            }
         }
     }
 }
