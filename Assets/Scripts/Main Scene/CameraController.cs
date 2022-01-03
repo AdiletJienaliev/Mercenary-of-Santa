@@ -33,6 +33,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         myTransform = gameObject.GetComponent<Transform>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void Update()
     {
