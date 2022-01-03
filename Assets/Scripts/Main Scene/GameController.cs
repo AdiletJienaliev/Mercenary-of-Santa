@@ -7,11 +7,13 @@ public class GameController : MonoBehaviour
     public static int HitAmount = 0;
     [Header("Сани")]
     public GameObject Sled;
-    private Transform SledTransform;
     public float speedForUp;
-    [Header("Позиции для конечной точки пути")]
-    public Transform FihishWay;
     public float speedForMovefoward;
+    [Header("Ограничения позиции")]
+    public float MinY;
+    public float MaxY;
+
+    private Transform SledTransform;
     private void Start()
     {
         SledTransform = Sled.GetComponent<Transform>();
@@ -23,11 +25,11 @@ public class GameController : MonoBehaviour
     }
     private void InputKeyBoard()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && SledTransform.position.y <= MaxY)
         {
             SledTransform.position = new Vector3(SledTransform.position.x, SledTransform.position.y + speedForUp * Time.deltaTime, SledTransform.position.z);
         }
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl) && SledTransform.position.y >= MinY)
         {
             SledTransform.position = new Vector3(SledTransform.position.x, SledTransform.position.y - speedForUp * Time.deltaTime, SledTransform.position.z);
         }

@@ -81,12 +81,4 @@ public class CameraChangeController : MonoBehaviour
             }
         }
     }
-    private void ZeroingRotation()
-    {
-        maincam.transform.rotation = Quaternion.identity;
-        leftcam.transform.rotation = Quaternion.identity;
-        rightcam.transform.rotation = Quaternion.identity;
-        upcam.transform.rotation = Quaternion.identity;
-        backcam.transform.rotation = Quaternion.identity;
-    }
 }
