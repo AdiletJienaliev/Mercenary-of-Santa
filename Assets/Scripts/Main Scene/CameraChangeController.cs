@@ -26,19 +26,27 @@ public class CameraChangeController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            maincam.SetActive(false);
-            leftcam.SetActive(false);
-            rightcam.SetActive(false);
-            upcam.SetActive(true);
-            backcam.SetActive(false);
+            if (maincam.activeSelf == true && leftcam.activeSelf == false && rightcam.activeSelf == false
+                && upcam.activeSelf == false && backcam.activeSelf == false)
+            {
+                maincam.SetActive(false);
+                leftcam.SetActive(false);
+                rightcam.SetActive(false);
+                upcam.SetActive(true);
+                backcam.SetActive(false);
+            }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            maincam.SetActive(false);
-            leftcam.SetActive(true);
-            rightcam.SetActive(false);
-            upcam.SetActive(false);
-            backcam.SetActive(false);
+            if (maincam.activeSelf == true && leftcam.activeSelf == false && rightcam.activeSelf == false
+                && upcam.activeSelf == false && backcam.activeSelf == false)
+            {
+                maincam.SetActive(false);
+                leftcam.SetActive(true);
+                rightcam.SetActive(false);
+                upcam.SetActive(false);
+                backcam.SetActive(false);
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -62,11 +70,15 @@ public class CameraChangeController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            maincam.SetActive(false);
-            leftcam.SetActive(false);
-            rightcam.SetActive(true);
-            upcam.SetActive(false);
-            backcam.SetActive(false);
+            if (maincam.activeSelf == true && leftcam.activeSelf == false && rightcam.activeSelf == false
+                && upcam.activeSelf == false && backcam.activeSelf == false)
+            {
+                maincam.SetActive(false);
+                leftcam.SetActive(false);
+                rightcam.SetActive(true);
+                upcam.SetActive(false);
+                backcam.SetActive(false);
+            }
         }
     }
     private void ZeroingRotation()
