@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.074703924, g: 0.24242106, b: 0.47127533, a: 1}
+  m_IndirectSpecularColor: {r: 0.07470287, g: 0.24242106, b: 0.47126728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   - {fileID: 6993653793869339470, guid: ff0d546613348e842ad261e0a0c7dfa7, type: 3}
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
-  hotKeyBoard: {fileID: 0}
+  hotKeyBoard: {fileID: 226175636}
 --- !u!114 &40635264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11734,7 +11734,7 @@ MonoBehaviour:
   - {fileID: 6993653793869339470, guid: ff0d546613348e842ad261e0a0c7dfa7, type: 3}
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
-  hotKeyBoard: {fileID: 0}
+  hotKeyBoard: {fileID: 226175636}
 --- !u!114 &574511447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11872,7 +11872,7 @@ MonoBehaviour:
   - {fileID: 6993653793869339470, guid: ff0d546613348e842ad261e0a0c7dfa7, type: 3}
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
-  hotKeyBoard: {fileID: 0}
+  hotKeyBoard: {fileID: 226175636}
 --- !u!1001 &587126575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13743,8 +13743,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sled: {fileID: 919132149214275171}
   speedForUp: 5
-  FihishWay: {fileID: 0}
   speedForMovefoward: 10
+  MinY: 0
+  MaxY: 0
 --- !u!4 &654523885
 Transform:
   m_ObjectHideFlags: 0
@@ -15708,7 +15709,7 @@ MonoBehaviour:
   - {fileID: 6993653793869339470, guid: ff0d546613348e842ad261e0a0c7dfa7, type: 3}
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
-  hotKeyBoard: {fileID: 0}
+  hotKeyBoard: {fileID: 226175636}
 --- !u!114 &749470076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42979,7 +42980,7 @@ MonoBehaviour:
   - {fileID: 6993653793869339470, guid: ff0d546613348e842ad261e0a0c7dfa7, type: 3}
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
-  hotKeyBoard: {fileID: 0}
+  hotKeyBoard: {fileID: 226175636}
 --- !u!114 &2095457049
 MonoBehaviour:
   m_ObjectHideFlags: 0
