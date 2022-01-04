@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Eventsmanager : MonoBehaviour
+
+public class EventsForSled : MonoBehaviour
 {
     public UnityEvent faced;
 
@@ -14,6 +15,7 @@ public class Eventsmanager : MonoBehaviour
             faced.Invoke();
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")

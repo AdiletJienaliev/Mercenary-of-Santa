@@ -107,7 +107,7 @@ public class CameraController : MonoBehaviour
             if (presentInhand != null)
             {
                 Rigidbody rig = presentInhand.GetComponent<Rigidbody>();
-                rig.AddRelativeForce(new Vector3(0, 0.1f, 1) * force, ForceMode.Impulse);
+                rig.AddRelativeForce(new Vector3(0, 0.05f, 1) * force, ForceMode.Impulse);
                 rig.useGravity = true;
                 presentInhand.transform.SetParent(playerTransform.parent.parent);
                 presentInhand = null;

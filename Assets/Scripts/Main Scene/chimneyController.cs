@@ -14,18 +14,6 @@ public class chimneyController : MonoBehaviour
     public BehaviourState behaviourState;
     private void Start()
     {
-        switch (Random.Range(0, 3))
-        {
-            case 0:
-                behaviourState = BehaviourState.badChild;
-                break;
-            case 1:
-                behaviourState = BehaviourState.goodchild;
-                break;
-            case 2:
-                behaviourState = BehaviourState.without;
-                break;
-        }
     }
     public TextMeshProUGUI presentAmountText;
     private void OnTriggerEnter(Collider other)
