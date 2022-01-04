@@ -18,6 +18,20 @@ public class CameraChangeController : MonoBehaviour
     public GameObject rightcam;
     public GameObject upcam;
     public GameObject backcam;
+    [Header("Доступные кнопки")]
+    public GameObject W;
+    public GameObject A;
+    public GameObject S;
+    public GameObject D;
+    public GameObject shift;
+    public GameObject ctrl;
+    private void Start()
+    {
+        W.SetActive(true);
+        A.SetActive(true);
+        S.SetActive(true);
+        D.SetActive(true);
+    }
     private void Update()
     {
         InputkeyBoard();
@@ -34,6 +48,13 @@ public class CameraChangeController : MonoBehaviour
                 rightcam.SetActive(false);
                 upcam.SetActive(true);
                 backcam.SetActive(false);
+                W.SetActive(false);
+                A.SetActive(false);
+                S.SetActive(true);
+                D.SetActive(false);
+                ctrl.SetActive(false);
+                shift.SetActive(false);
+                GameController.Mainpos = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
@@ -46,6 +67,13 @@ public class CameraChangeController : MonoBehaviour
                 rightcam.SetActive(false);
                 upcam.SetActive(false);
                 backcam.SetActive(false);
+                W.SetActive(false);
+                A.SetActive(false);
+                S.SetActive(true);
+                D.SetActive(false);
+                ctrl.SetActive(false);
+                shift.SetActive(false);
+                GameController.Mainpos = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -58,14 +86,28 @@ public class CameraChangeController : MonoBehaviour
                 rightcam.SetActive(false);
                 upcam.SetActive(false);
                 backcam.SetActive(true);
+                W.SetActive(false);
+                A.SetActive(false);
+                S.SetActive(true);
+                D.SetActive(false);
+                ctrl.SetActive(false);
+                shift.SetActive(false);
+                GameController.Mainpos = false;
             }
             else
             {
+                GameController.Mainpos = true;
                 maincam.SetActive(true);
                 leftcam.SetActive(false);
                 rightcam.SetActive(false);
                 upcam.SetActive(false);
                 backcam.SetActive(false);
+                W.SetActive(true);
+                A.SetActive(true);
+                S.SetActive(true);
+                D.SetActive(true);
+                ctrl.SetActive(true);
+                shift.SetActive(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -78,6 +120,13 @@ public class CameraChangeController : MonoBehaviour
                 rightcam.SetActive(true);
                 upcam.SetActive(false);
                 backcam.SetActive(false);
+                W.SetActive(false);
+                A.SetActive(false);
+                S.SetActive(true);
+                D.SetActive(false);
+                ctrl.SetActive(false);
+                shift.SetActive(false);
+                GameController.Mainpos = false;
             }
         }
     }

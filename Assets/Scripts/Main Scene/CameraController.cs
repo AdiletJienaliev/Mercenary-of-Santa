@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     private float rotationX;
     private Transform myTransform;
     [Header("настройки ограничени€ камеры")]
-    [SerializeField]private float Ymin;
+    [SerializeField] private float Ymin;
     [SerializeField] private float Ymax;
     [SerializeField] private float Xmin;
     [SerializeField] private float Xmax;
@@ -34,6 +34,9 @@ public class CameraController : MonoBehaviour
 
     [Header("гор€ча€ клавишв дл€ подбора")]
     public GameObject hotKeyBoard;
+    [Header("—крипты подарков и углей")]
+    public Outline Bag;
+    public Outline MountainOfCoal;
     #endregion
     void Start()
     {
@@ -70,12 +73,20 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            if (hit.transform.gameObject.tag == "Bag" || hit.transform.gameObject.tag == "MountainOfCoal"&& presentInhand == null)
+            if (hit.transform.gameObject.tag == "Bag" && presentInhand == null)
             {
+                Bag.enabled = true;
+                hotKeyBoard.SetActive(true);
+            }
+            else if(hit.transform.gameObject.tag == "MountainOfCoal" && presentInhand == null)
+            {
+                MountainOfCoal.enabled = true;
                 hotKeyBoard.SetActive(true);
             }
             else
             {
+                Bag.enabled = false;
+                MountainOfCoal.enabled = false;
                 hotKeyBoard.SetActive(false);
             }
             if (Input.GetKeyDown(KeyCode.E) && presentInhand == null)

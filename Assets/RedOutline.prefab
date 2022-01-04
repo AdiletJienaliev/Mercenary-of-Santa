@@ -212,7 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behaviourState: 0
-  presentAmountText: {fileID: 0}
+  outline: {fileID: 517045753168308346}
+  chimney: {fileID: 1653618210645168799}
+  icon: {fileID: 4663081289830635662}
 --- !u!1 &4663081289830635662
 GameObject:
   m_ObjectHideFlags: 0

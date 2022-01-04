@@ -12,10 +12,13 @@ public enum BehaviourState
 public class chimneyController : MonoBehaviour
 {
     public BehaviourState behaviourState;
+    public Outline outline;
+    public Outline chimney;
+    public GameObject icon;
     private void Start()
     {
+
     }
-    public TextMeshProUGUI presentAmountText;
     private void OnTriggerEnter(Collider other)
     {
         switch ((int)behaviourState)
@@ -24,16 +27,22 @@ public class chimneyController : MonoBehaviour
                 if (other.gameObject.tag == "coal")
                 {
                     GameController.HitAmount++;
-                    presentAmountText.text = GameController.HitAmount.ToString();
+                    Debug.Log("Поадание");
                     Destroy(other.gameObject);
+                    outline.enabled = false;
+                    chimney.enabled = false;
+                    icon.SetActive(false);
                 }
                 break;
             case 1:
                 if (other.gameObject.tag == "present")
                 {
                     GameController.HitAmount++;
-                    presentAmountText.text = GameController.HitAmount.ToString();
+                    Debug.Log("Поадание");
                     Destroy(other.gameObject);
+                    outline.enabled = false;
+                    chimney.enabled = false;
+                    icon.SetActive(false);
                 }
                 break;
         }
