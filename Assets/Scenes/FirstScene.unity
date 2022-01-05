@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0017475456, g: 0.002082691, b: 0.50382346, a: 1}
+  m_IndirectSpecularColor: {r: 0.0018561439, g: 0.0020850583, b: 0.5038577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1747,6 +1747,109 @@ PrefabInstance:
         \u043D\u0430\u0434\u043E!"
       objectReference: {fileID: 0}
     - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[0].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[0].Text_Eng
+      value: Hey .. I know you are in shock now ... As I understand you are now also
+        a new year ..
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[1].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[1].Text_Eng
+      value: It's so calm here ... Your Santa's life is much easier than me ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[2].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[2].Text_Eng
+      value: In our dimension, there are eternal anomalies ... For example, now I
+        was thrown into your dimension ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[3].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[3].Text_Eng
+      value: Through this strange green portal ... I wonder ... which dimension he
+        is from ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[4].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[4].Text_Eng
+      value: I am very afraid to ruin the holiday ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[5].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[5].Text_Eng
+      value: And not to fulfill my Santa's duty - To give a holiday to all children
+        in my dimension ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[6].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[6].Text_Eng
+      value: After the fall I am injured .. and apparently I have no choice but to
+        ask you for help ..
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[7].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[7].Text_Eng
+      value: You only have to give away 50 gifts!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[8].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[8].Text_Eng
+      value: If you complete everything successfully, then thanks to the energy of
+        the holiday and your kindness ..
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[9].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[9].Text_Eng
+      value: I will have the strength ... to prevent all subsequent chaos!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[10].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[10].Text_Eng
+      value: And if it doesn't work out ... in general, the fate of the entire universe
+        is in your hands!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[11].Name_Eng
+      value: Santa from another dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
+      propertyPath: Dialog.Array.data[11].Text_Eng
+      value: Just sit in the sleigh and they will take you where you need to go!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
       propertyPath: Dialog.Array.data[10].afterPhrase.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1809,7 +1912,7 @@ PrefabInstance:
     - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
       propertyPath: Dialog.Array.data[11].afterPhrase.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 191911033}
+      objectReference: {fileID: 463147269}
     - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
       propertyPath: Dialog.Array.data[11].afterPhrase.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1817,7 +1920,7 @@ PrefabInstance:
     - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
       propertyPath: Dialog.Array.data[11].afterPhrase.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 463147269}
+      objectReference: {fileID: 191911033}
     - target: {fileID: 7761462573745331062, guid: 67cf2b1562ac204408e40de818ddd184, type: 3}
       propertyPath: Dialog.Array.data[12].afterPhrase.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
