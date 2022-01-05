@@ -32,16 +32,39 @@ public class DialogController : MonoBehaviour
     {
         if (currentIndex < Dialog.Count)
         {
-            
-            if (Dialog[currentIndex].Name != null)
+            if (PlayerPrefs.GetInt("Localization") == 0)
             {
-                nameText.text = Dialog[currentIndex].Name;
+                stoper = true;
+                if (Dialog[currentIndex].Name != null)
+                {
+                    nameText.text = Dialog[currentIndex].Name;
+                }
+                if (Dialog[currentIndex].Text != null)
+                    phraseText.text = Dialog[currentIndex].Text;
+                Dialog[currentIndex].afterPhrase.Invoke();
+                if (currentIndex != (Dialog.Count - 1))
+                {
+                    StartCoroutine(shake());
+                }
+                currentIndex++;
             }
-            if(Dialog[currentIndex].Text != null)
-            phraseText.text = Dialog[currentIndex].Text;
-            Dialog[currentIndex].afterPhrase.Invoke();    
-            StartCoroutine(shake());
-            currentIndex++;
+            else
+            {
+                stoper = true;
+                if (Dialog[currentIndex].Name_Eng != null)
+                {
+                    nameText.text = Dialog[currentIndex].Name_Eng;
+                }
+                if (Dialog[currentIndex].Text_Eng != null)
+                    phraseText.text = Dialog[currentIndex].Text_Eng;
+                Dialog[currentIndex].afterPhrase.Invoke();
+                if (currentIndex != (Dialog.Count - 1))
+                {
+                    StartCoroutine(shake());
+                }
+                
+                currentIndex++;
+            }
         }
         else
         {
@@ -55,13 +78,17 @@ public class DialogController : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y + 50, DialogMainObj.transform.position.z), 0.2f);
         yield return new WaitForSeconds(0.2f);
-        stoper = true;
     }
 }
 [System.Serializable]
 public class DialogItem
 {
+    [Header("Rus")]
     public string Text;
-    public string Name;   
+    public string Name;  
+    [Header("Eng")]
+    public string Text_Eng;
+    public string Name_Eng;
+
     public UnityEvent afterPhrase;
 }
