@@ -55,6 +55,7 @@ public class CameraChangeController : MonoBehaviour
                 ctrl.SetActive(false);
                 shift.SetActive(false);
                 GameController.Mainpos = false;
+                CameraController.canTrow = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
@@ -74,6 +75,7 @@ public class CameraChangeController : MonoBehaviour
                 ctrl.SetActive(false);
                 shift.SetActive(false);
                 GameController.Mainpos = false;
+                CameraController.canTrow = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -93,6 +95,7 @@ public class CameraChangeController : MonoBehaviour
                 ctrl.SetActive(false);
                 shift.SetActive(false);
                 GameController.Mainpos = false;
+                CameraController.canTrow = false;
             }
             else
             {
@@ -108,6 +111,7 @@ public class CameraChangeController : MonoBehaviour
                 D.SetActive(true);
                 ctrl.SetActive(true);
                 shift.SetActive(true);
+                CameraController.canTrow = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -127,7 +131,22 @@ public class CameraChangeController : MonoBehaviour
                 ctrl.SetActive(false);
                 shift.SetActive(false);
                 GameController.Mainpos = false;
+                CameraController.canTrow = true;
             }
         }
+    }
+    public void Fihish()
+    {
+        maincam.SetActive(false);
+        leftcam.SetActive(false);
+        rightcam.SetActive(false);
+        upcam.SetActive(false);
+        backcam.SetActive(false);
+        W.SetActive(false);
+        A.SetActive(false);
+        S.SetActive(true);
+        D.SetActive(false);
+        ctrl.SetActive(false);
+        shift.SetActive(false);
     }
 }

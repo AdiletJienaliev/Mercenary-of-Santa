@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +32,8 @@ public class CameraController : MonoBehaviour
     public List<GameObject> coals = new List<GameObject>();
 
     [Header("гор€ча€ клавишв дл€ подбора")]
-    public GameObject hotKeyBoard;
+    public GameObject hotKeyBoard_E;
+    public GameObject hotKeyBoard_Q;
     [Header("—крипты подарков и углей")]
     public Outline Bag;
     public Outline MountainOfCoal;
@@ -48,6 +48,16 @@ public class CameraController : MonoBehaviour
         InputMouse();
         CameraRotate();
         RayPickUp();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (presentInhand != null)
+            {
+                Destroy(presentInhand);
+                presentInhand = null;
+                hotKeyBoard_Q.SetActive(false);
+            }
+        }
     }
     private void InputMouse()
     {
@@ -57,13 +67,29 @@ public class CameraController : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, Ymin, Ymax);
         rotationX -= mouseX;
         rotationX = Mathf.Clamp(rotationX, Xmin, Xmax);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (presentInhand != null && canTrow)
+            {
+                Rigidbody rig = presentInhand.GetComponent<Rigidbody>();
+                rig.AddRelativeForce(new Vector3(0, 0.05f, 1) * force, ForceMode.Impulse);
+                rig.useGravity = true;
+                presentInhand.transform.SetParent(playerTransform.parent.parent);
+                presentInhand = null;
+                hotKeyBoard_Q.SetActive(false);
+            }
+        }
     }
     private void CameraRotate()
     {
-        playerTransform.localRotation = Quaternion.Euler( 0, -rotationX, 0);
-        myTransform.localRotation = Quaternion.Euler(rotationY, 0, 0);
+        if (GameController.canMove)
+        {
+            playerTransform.localRotation = Quaternion.Euler(0, -rotationX, 0);
+            myTransform.localRotation = Quaternion.Euler(rotationY, 0, 0);
+        }
     }
     static public GameObject presentInhand;
+    static public bool canTrow = true;
     private void RayPickUp()
     {
 
@@ -76,18 +102,18 @@ public class CameraController : MonoBehaviour
             if (hit.transform.gameObject.tag == "Bag" && presentInhand == null)
             {
                 Bag.enabled = true;
-                hotKeyBoard.SetActive(true);
+                hotKeyBoard_E.SetActive(true);
             }
             else if(hit.transform.gameObject.tag == "MountainOfCoal" && presentInhand == null)
             {
                 MountainOfCoal.enabled = true;
-                hotKeyBoard.SetActive(true);
+                hotKeyBoard_E.SetActive(true);
             }
             else
             {
                 Bag.enabled = false;
                 MountainOfCoal.enabled = false;
-                hotKeyBoard.SetActive(false);
+                hotKeyBoard_E.SetActive(false);
             }
             if (Input.GetKeyDown(KeyCode.E) && presentInhand == null)
             {
@@ -98,6 +124,7 @@ public class CameraController : MonoBehaviour
                     a.transform.localPosition = Vector3.zero;
                     a.transform.localRotation = Quaternion.identity;
                     presentInhand = a;
+                    hotKeyBoard_Q.SetActive(true);
                 }
                 else if(hit.transform.gameObject.tag == "MountainOfCoal")
                 {
@@ -106,6 +133,7 @@ public class CameraController : MonoBehaviour
                     a.transform.localPosition = Vector3.zero;
                     a.transform.localRotation = Quaternion.identity;
                     presentInhand = a;
+                    hotKeyBoard_Q.SetActive(true);
                 }
             }
         }
@@ -113,17 +141,7 @@ public class CameraController : MonoBehaviour
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (presentInhand != null)
-            {
-                Rigidbody rig = presentInhand.GetComponent<Rigidbody>();
-                rig.AddRelativeForce(new Vector3(0, 0.05f, 1) * force, ForceMode.Impulse);
-                rig.useGravity = true;
-                presentInhand.transform.SetParent(playerTransform.parent.parent);
-                presentInhand = null;
-            }
-        }
+        
     }
 }
 

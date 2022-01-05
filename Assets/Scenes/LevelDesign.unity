@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.074703924, g: 0.24242106, b: 0.47127533, a: 1}
+  m_IndirectSpecularColor: {r: 0.07470287, g: 0.24242106, b: 0.47126728, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1013,6 +1013,8 @@ MonoBehaviour:
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
   hotKeyBoard: {fileID: 226175636}
+  Bag: {fileID: 0}
+  MountainOfCoal: {fileID: 0}
 --- !u!114 &40635264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2655,6 +2657,12 @@ MonoBehaviour:
   rightcam: {fileID: 1857827157}
   upcam: {fileID: 563496913}
   backcam: {fileID: 361084976}
+  W: {fileID: 0}
+  A: {fileID: 0}
+  S: {fileID: 0}
+  D: {fileID: 0}
+  shift: {fileID: 0}
+  ctrl: {fileID: 0}
 --- !u!4 &116325044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b6044247db25d840a667094256875d3, type: 3}
@@ -11735,6 +11743,8 @@ MonoBehaviour:
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
   hotKeyBoard: {fileID: 226175636}
+  Bag: {fileID: 0}
+  MountainOfCoal: {fileID: 0}
 --- !u!114 &574511447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11873,6 +11883,8 @@ MonoBehaviour:
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
   hotKeyBoard: {fileID: 226175636}
+  Bag: {fileID: 0}
+  MountainOfCoal: {fileID: 0}
 --- !u!1001 &587126575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13741,11 +13753,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abfd5a800754694c97ec3784fa10c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  needHitAmount: 0
+  hitAmountText: {fileID: 0}
   Sled: {fileID: 919132149214275171}
   speedForUp: 5
   speedForMovefoward: 10
   MinY: 0
   MaxY: 0
+  TimeLine: {fileID: 0}
+  Win:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &654523885
 Transform:
   m_ObjectHideFlags: 0
@@ -15710,6 +15728,8 @@ MonoBehaviour:
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
   hotKeyBoard: {fileID: 226175636}
+  Bag: {fileID: 0}
+  MountainOfCoal: {fileID: 0}
 --- !u!114 &749470076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19962,7 +19982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &983450155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42981,6 +43001,8 @@ MonoBehaviour:
   coals:
   - {fileID: 4894383068421941605, guid: 9966d6bba505be54cbd6fbe37576a94f, type: 3}
   hotKeyBoard: {fileID: 226175636}
+  Bag: {fileID: 0}
+  MountainOfCoal: {fileID: 0}
 --- !u!114 &2095457049
 MonoBehaviour:
   m_ObjectHideFlags: 0

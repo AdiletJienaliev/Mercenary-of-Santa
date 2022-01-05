@@ -9,8 +9,6 @@ public class MainMenuController : MonoBehaviour
 {
     [Header("Settings")]
     public AudioMixer audioMixer;
-    public Transform SettingsPan;
-    public Vector3 SettingsPanPos;
     Resolution[] resolutions;
     [Header(":fe")]
     public Dropdown resolutionDropFown;
@@ -18,10 +16,14 @@ public class MainMenuController : MonoBehaviour
     public Slider volumeSlider;
     public Dropdown graphDropDown;
     public Dropdown resolutionDropDown;
+    public Button PlayWithoutCutSceneBtn;
 
     private void Start()
     {
-        SettingsPanPos = SettingsPan.position;
+        if (PlayerPrefs.GetInt("PlayWithoutCutSceneBtn") == 0)
+        {
+            PlayWithoutCutSceneBtn.interactable = false;
+        }
         resolutions = Screen.resolutions;
 
         resolutionDropFown.ClearOptions();
@@ -49,19 +51,19 @@ public class MainMenuController : MonoBehaviour
     #region Btn
     public void PlayBtn()
     {
-        
+        SceneManager.LoadScene("FirstScene");
+    }
+    public void PlayWithoutCutSceneBtnMethod()
+    {
+        SceneManager.LoadScene("MainScene");
     }
     public void SettingBtn()
     {
-        SettingsPan.position = new Vector3(960, 540, 0);
-    }
-    public void SettingCloseBtn()
-    {
-        SettingsPan.position = SettingsPanPos;
+        
     }
     public void ExitBtn()
     {
-
+        Application.Quit();
     }
     #endregion
     #region Settings
