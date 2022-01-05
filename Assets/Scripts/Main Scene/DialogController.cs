@@ -45,14 +45,15 @@ public class DialogController : MonoBehaviour
         }
         else
         {
-            Destroy(DialogMainObj);
+            Dialog[currentIndex].afterPhrase.Invoke();
+            /*Destroy(DialogMainObj);*/
         }
     }
     private IEnumerator shake()
     {
-        LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y - 100, DialogMainObj.transform.position.z), 0.2f);
+        LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y - 50, DialogMainObj.transform.position.z), 0.2f);
         yield return new WaitForSeconds(0.2f);
-        LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y + 100, DialogMainObj.transform.position.z), 0.2f);
+        LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y + 50, DialogMainObj.transform.position.z), 0.2f);
         yield return new WaitForSeconds(0.2f);
         stoper = true;
     }
