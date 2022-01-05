@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     #endregion
     #region public field
     [Header("Контроль чувствительности мыши")]
-    public float sensitivityMouse = 200f;
+    public static float sensitivityMouse = 300f;
     public Transform playerTransform;
 
     [Header("Обьект гдк будет появлятся подарок ")]

@@ -128,5 +128,9 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void SensitivitySettingSlider(float value)
+    {
+        CameraController.sensitivityMouse = value;
+    }
     #endregion
 }
