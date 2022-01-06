@@ -15,9 +15,10 @@ public class chimneyController : MonoBehaviour
     public Outline outline;
     public Outline chimney;
     public GameObject icon;
+    public AudioSource hitAudio;
     private void Start()
     {
-
+        hitAudio.Pause();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -32,6 +33,7 @@ public class chimneyController : MonoBehaviour
                     outline.enabled = false;
                     chimney.enabled = false;
                     icon.SetActive(false);
+                    hitAudio.Play();
                 }
                 break;
             case 1:
@@ -43,6 +45,7 @@ public class chimneyController : MonoBehaviour
                     outline.enabled = false;
                     chimney.enabled = false;
                     icon.SetActive(false);
+                    hitAudio.Play();
                 }
                 break;
         }

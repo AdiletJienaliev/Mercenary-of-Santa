@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.Timeline;
 
 public class GameController : MonoBehaviour
 {
@@ -43,6 +44,10 @@ public class GameController : MonoBehaviour
     public GameObject restartBtn;
     [Header("Pause Active")]
     public GameObject PausePan;
+    public GameObject clueGroup;
+    [Header("Pause / Resume")]
+    public UnityEvent pause;
+    public UnityEvent resume;
 
     private void Start()
     {
@@ -74,11 +79,13 @@ public class GameController : MonoBehaviour
             {
                 canMove = false;
                 Cursor.lockState = CursorLockMode.None;
+                pause.Invoke();
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 canMove = true;
+                resume.Invoke();
             }
         }
     }
@@ -119,6 +126,7 @@ public class GameController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         PausePan.SetActive(false);
         canMove = true;
+        resume.Invoke();
     }
     public void ExitBtn()
     {
@@ -131,6 +139,10 @@ public class GameController : MonoBehaviour
     public void SensitivitySettingSlider(float value)
     {
         CameraController.sensitivityMouse = value;
+    }
+    public void ClueAtcive()
+    {
+        clueGroup.SetActive(!clueGroup.activeSelf);
     }
     #endregion
 }

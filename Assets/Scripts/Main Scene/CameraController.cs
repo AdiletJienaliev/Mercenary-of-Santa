@@ -37,11 +37,18 @@ public class CameraController : MonoBehaviour
     [Header("Скрипты подарков и углей")]
     public Outline Bag;
     public Outline MountainOfCoal;
+    [Header("Audio")]
+    public AudioSource coalAoudio;
+    public AudioSource presentsAoudio;
+    public AudioSource throwAoudio;
     #endregion
     void Start()
     {
         myTransform = gameObject.GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
+        coalAoudio.Stop();
+        presentsAoudio.Stop();
+        throwAoudio.Stop();
     }
     void Update()
     {
@@ -56,6 +63,7 @@ public class CameraController : MonoBehaviour
                 Destroy(presentInhand);
                 presentInhand = null;
                 hotKeyBoard_Q.SetActive(false);
+                throwAoudio.Play();
             }
         }
     }
@@ -77,6 +85,7 @@ public class CameraController : MonoBehaviour
                 presentInhand.transform.SetParent(playerTransform.parent.parent);
                 presentInhand = null;
                 hotKeyBoard_Q.SetActive(false);
+                
             }
         }
     }
@@ -125,6 +134,7 @@ public class CameraController : MonoBehaviour
                     a.transform.localRotation = Quaternion.identity;
                     presentInhand = a;
                     hotKeyBoard_Q.SetActive(true);
+                    presentsAoudio.Play();
                 }
                 else if(hit.transform.gameObject.tag == "MountainOfCoal")
                 {
@@ -134,6 +144,7 @@ public class CameraController : MonoBehaviour
                     a.transform.localRotation = Quaternion.identity;
                     presentInhand = a;
                     hotKeyBoard_Q.SetActive(true);
+                    coalAoudio.Play();
                 }
             }
         }
