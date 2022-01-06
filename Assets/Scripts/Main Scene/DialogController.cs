@@ -20,21 +20,19 @@ public class DialogController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && stoper)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            stoper = false;
             NextPhrase();
         }
     }
     int currentIndex = 0;
-    bool stoper = true;
     private void NextPhrase()
     {
         if (currentIndex < Dialog.Count)
         {
             if (PlayerPrefs.GetInt("Localization") == 0)
             {
-                stoper = true;
+
                 if (Dialog[currentIndex].Name != null)
                 {
                     nameText.text = Dialog[currentIndex].Name;
@@ -50,7 +48,6 @@ public class DialogController : MonoBehaviour
             }
             else
             {
-                stoper = true;
                 if (Dialog[currentIndex].Name_Eng != null)
                 {
                     nameText.text = Dialog[currentIndex].Name_Eng;
@@ -68,15 +65,16 @@ public class DialogController : MonoBehaviour
         }
         else
         {
-            Dialog[currentIndex].afterPhrase.Invoke();
-            /*Destroy(DialogMainObj);*/
+            Dialog[currentIndex-1].afterPhrase.Invoke();
         }
     }
+    Vector3 a;
     private IEnumerator shake()
     {
+        a = new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y, DialogMainObj.transform.position.z);
         LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y - 50, DialogMainObj.transform.position.z), 0.2f);
         yield return new WaitForSeconds(0.2f);
-        LeanTween.move(DialogMainObj, new Vector3(DialogMainObj.transform.position.x, DialogMainObj.transform.position.y + 50, DialogMainObj.transform.position.z), 0.2f);
+        LeanTween.move(DialogMainObj, a, 0.2f);
         yield return new WaitForSeconds(0.2f);
     }
 }

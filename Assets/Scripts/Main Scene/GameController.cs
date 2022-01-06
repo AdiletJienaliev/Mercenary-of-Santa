@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
     private Transform SledTransform;
     [Header("Win Events")]
     public UnityEvent Win;
+    public UnityEvent Lose;
     [Header("KeyBoard restart finish")]
     public GameObject restartBtn;
     [Header("Pause Active")]
@@ -103,13 +104,14 @@ public class GameController : MonoBehaviour
     }
     public void Finish()
     {
-        if (hitAmount !>= needHitAmount)
+        Cursor.lockState = CursorLockMode.None;
+        if (hitAmount >= needHitAmount)
         {
-            restartBtn.SetActive(true);
+            Win.Invoke();
         }
         else
         {
-            Win.Invoke();
+            Lose.Invoke();
         }
     }
     public void WinScene()
